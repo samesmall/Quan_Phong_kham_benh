@@ -42,10 +42,11 @@ adminLogin();
                     <table class="table table-hover border" style="width: 100%">
                         <thead>
                             <tr class="text-dark">
-                                <th scope="col-sm" style="padding-left: 20px">Doctor_id</th>
-                                <th scope="col" style="width: 20%">Doctor_name</th>
-                                <th scope="col-sm">Specialized</th>
-                                <th scope="col-sm">Action</th>
+                                <th scope="col-sm" style="padding-left: 20px">ID<br>Số thứ tự</th>
+                                <th scope="col-sm" style="padding-left: 20px">Doctor_id<br>Mã bác sĩ</th>
+                                <th scope="col" style="width: 30%">Doctor_name<br>Tên bác sĩ</th>
+                                <th scope="col-sm" style="width: 30%">Specialized<br>Chuyên ngành</th>
+                                <th scope="col-sm">Action<br>Thao tác</th>
                             </tr>
                         </thead>
                         <tbody id="doctors-data">
@@ -63,7 +64,7 @@ adminLogin();
     <!-- add room modal -->
     <div class="modal fade" id="add-doctors" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <form id="add_room_form" autocomplete="off">
+            <form id="add_doctors_form" autocomplete="off">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Add New Doctor</h5>
@@ -72,7 +73,7 @@ adminLogin();
                         <div class="row">
                             <div class="col-12 mb-3">
                                 <label class="form-label fw-bold">Doctor name</label>
-                                <input type="text" id="Doctors_name" class="form-control shadow-none" required>
+                                <input type="text" id="Doctor_name" class="form-control shadow-none" required>
                             </div>
                             <div class="col-12 mb-3">
                                 <label class="form-label fw-bold">Specialized</label>
@@ -89,11 +90,41 @@ adminLogin();
             </form>
         </div>
     </div>
+ <!-- edit doctor modal -->
+        <div class="modal fade" id="edit-doctors" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <form id="edit_doctors_form" autocomplete="off">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Doctor</h5>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <input type="hidden" name="Doctor_id">
+                                    <div class="col-12 mb-3">
+                                        <label class="form-label fw-bold">Doctor name</label>
+                                        <input type="text" id="Doctor_name" class="form-control shadow-none" required>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label class="form-label fw-bold">Specialized</label>
+                                        <textarea name="Specialized" rows="4" class="form-control shadow-none" required></textarea>
+                                    </div>
+                                </div>
 
-    <!-- Edit room modal -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="reset" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
+                                <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+    <!-- Edit room modal
     <div class="modal fade" id="edit-doctors" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <form id="edit_room_form" autocomplete="off">
+            <form id="edit_doctors_form" autocomplete="off">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Edit Doctor</h5>
@@ -102,13 +133,14 @@ adminLogin();
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Doctor name</label>
-                                <input type="text" id="Doctors_name" class="form-control shadow-none" required>
+                                <input type="text" id="Doctor_name" class="form-control shadow-none" required>
                             </div>
                             </div>
                             <div class="col-12 mb-3">
                                 <label class="form-label fw-bold">Specialized</label>
                                 <textarea name="Specialized" rows="4" class="form-control shadow-none" required></textarea>
                             </div>
+                            
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -118,7 +150,7 @@ adminLogin();
                 </div>
             </form>
         </div>
-    </div>
+    </div> -->
 
   
 

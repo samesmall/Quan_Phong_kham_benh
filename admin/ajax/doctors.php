@@ -18,7 +18,11 @@ if(isset($_POST['add_doctors']))
     $flag = 1;
   }
 
- 
+  if($flag){
+    echo 1;
+  }else{
+    echo 0;
+  }
 
 
 
@@ -26,7 +30,8 @@ if(isset($_POST['add_doctors']))
 
 if(isset($_POST['get_all_doctors']))
 {
-  $res = select("SELECT * FROM `doctors`",[0],'i');
+ 
+  $res = selectAll('doctors');
   $i= 1;
   $data = "";
   while($row = mysqli_fetch_assoc($res))
@@ -34,9 +39,10 @@ if(isset($_POST['get_all_doctors']))
     $data.="
     <tr class='align-middle'>
         <td style='padding-left: 20px'>$i</td>
+        <td style='padding-left: 20px'>$row[Doctor_id]</td>
         <td>$row[Doctor_name]</td>
         <td>$row[Specialized]</td>
-        <td>
+ 
         
         <td>
           <button type='button' onclick='edit_details($row[Doctor_id])' class='btn btn-primary shadow-none btn-sm' data-bs-toggle='modal' data-bs-target='#edit-doctors'>
@@ -53,94 +59,33 @@ if(isset($_POST['get_all_doctors']))
   echo $data;
 }
 
-if(isset($_POST['get_room']))
+if(isset($_POST['get_doctors']))
 {
   $frm_data = filteration($_POST);
-  $res1 = select("SELECT * FROM `rooms` WHERE  `id`=?",[$frm_data['get_room']],'i');
-  $res2 = select("SELECT * FROM `room_features` WHERE  `room_id`=?",[$frm_data['get_room']],'i');
-  $res3 = select("SELECT * FROM `room_facilities` WHERE  `room_id`=?",[$frm_data['get_room']],'i');
+  $res1 = select("SELECT * FROM `doctors` WHERE  `Doctor_id`=?",[$frm_data['get_doctors']],'i');
 
-  $roomdata = mysqli_fetch_assoc($res1);
-  $features = [];
-  $facilities = [];
+  $doctordata = mysqli_fetch_assoc($res1);
+ 
 
-  if(mysqli_num_rows($res2)>0)
-  {
-     while($row = mysqli_fetch_assoc($res2)){
-         array_push($features,$row['features_id']);
-     }
-  }
 
-  if(mysqli_num_rows($res3)>0)
-  {
-     while($row = mysqli_fetch_assoc($res3)){
-         array_push($facilities,$row['facilities_id']);
-     }
-  }
-
-  $data = ["roomdata" => $roomdata, "features"=> $features, "facilities"=> $facilities];
+  $data = ["doctordata" => $doctordata];
 
   $data = json_encode($data);
   echo $data;
 
 }
 
-if(isset($_POST['edit_room']))
+if(isset($_POST['edit_doctors']))
 {
-  $features = filteration(json_decode($_POST['features']));
-  $facilities = filteration(json_decode($_POST['facilities']));
 
   $frm_data = filteration($_POST);
   $flag = 0;
 
-  $q1 = "UPDATE `rooms` SET `name`=?,`area`=?,`price`=?,`quantity`=?,`adult`=?,`children`=?,`description`=? WHERE `id`=?";
-  $values = [$frm_data['name'], $frm_data['area'],  $frm_data['price'], $frm_data['quantity'], $frm_data['adult'], $frm_data['children'], $frm_data['desc'], $frm_data['room_id']];
+  $q1 = "UPDATE `doctors` SET `Doctor_name`=?,`Specialized`=? WHERE `Doctor_id`=?";
+  $values = [$frm_data['Doctor_name'], $frm_data['Specialized'], $frm_data['Doctor_id']];
    
-  if(update($q1,$values,'siiiiisi')){
+  if(update($q1,$values,'ssi')){
     $flag = 1;
-  }
-
-  $del_features = delete("DELETE FROM `room_features` WHERE `room_id`=?",[$frm_data['room_id']],'i' );
-  $del_facilities = delete("DELETE FROM `room_facilities` WHERE `room_id`=?",[$frm_data['room_id']],'i' );
-
-  if(!($del_facilities && $del_features)){
-     $flag = 0;     
-  }
-
-  $q2 = "INSERT INTO `room_facilities`( `room_id`, `facilities_id`) VALUES (?,?)";
-
-  if($stmt = mysqli_prepare($con,$q2))
-  {
-    foreach($facilities as $f){
-      mysqli_stmt_bind_param($stmt,'ii',$frm_data['room_id'],$f);
-      mysqli_stmt_execute($stmt);
-    }
-    $flag = 1;
-    mysqli_stmt_close($stmt);
-  }else{
-     $flag = 0;
-     die('query cannot be prepared - insert');
-  }
-
-  if($flag){
-    echo 1;
-  }else{
-    echo 0;
-  }
-
-  $q3 = "INSERT INTO `room_features`( `room_id`, `features_id`) VALUES (?,?)";
-
-  if($stmt = mysqli_prepare($con,$q3))
-  {
-    foreach($features as $f){
-      mysqli_stmt_bind_param($stmt,'ii',$frm_data['room_id'],$f);
-      mysqli_stmt_execute($stmt);
-    }
-    $flag = 1;
-    mysqli_stmt_close($stmt);
-  }else{
-     $flag = 0;
-     die('query cannot be prepared - insert');
   }
 
   if($flag){
@@ -159,7 +104,7 @@ if(isset($_POST['remove_doctors']))
     $frm_data = filteration($_POST);
 
     
-    $res1 = delete("DELETE FROM `doctors` WHERE `id`=?",[$frm_data['room_id']],'i');
+    $res1 = delete("DELETE FROM `doctors` WHERE `Doctor_id`=?",[$frm_data['Doctor_id']],'i');
     if($res1)
     {
       echo 1;

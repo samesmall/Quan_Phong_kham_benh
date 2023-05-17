@@ -1,5 +1,5 @@
 <div class="container-fluid p-3 d-flex align-items-center justify-content-between sticky-top" style="background:rgba(161, 174, 175, 1)">
-    <h3 class="titile-dashbroad mb-0" style="font-family: 'Josefin Sans', sans-serif; color:rgba(15, 74, 78, 1); font-weight: 700;">HỆ QUẢN LÝ PHÒNG KHÁM BỆNH</h3>
+    <h3 class="titile-dashbroad mb-0" style="font-family: 'Josefin Sans', sans-serif; color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-hospital"></i> HỆ QUẢN LÝ PHÒNG KHÁM BỆNH</h3>
     <a href="logout.php" class="btn btn-danger btn-sm "><i class="bi bi-box-arrow-right "></i> LOG OUT</a>
 </div>
 
@@ -17,9 +17,7 @@
             <div class="collapse navbar-collapse flex-column align-items-stretch mt-2" id="adminDropdown">
                 <ul class="nav nav-pills flex-column">
 
-                    <!-- <li class="nav-item">
-                        <a class="nav-link border mt-2" style="color: black; background:rgba(161, 174, 175, 1)" href="dashboard.php"><i class="bi bi-table"></i> Dashboard</a>
-                    </li> -->
+
                     <li class="nav-item">
                      <button class="btn px-3 w-100 shadow-none text-start d-flex align-items-center">
                      <span><i class="bi bi-clipboard"></i> Bookings</span>
@@ -52,6 +50,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link border mt-2 text-dark"  href="doctors.php"><i class="bi bi-person-circle"></i> Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link border mt-2 text-dark"  href="patients.php"><i class="bi bi-heart-pulse-fill"></i> Patients</a>
                     </li>
                 </ul>
             </div>

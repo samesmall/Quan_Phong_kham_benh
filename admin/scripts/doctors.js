@@ -11,24 +11,15 @@ function add_doctors() {
     data.append('add_doctors', '');
     data.append('Doctor_name', add_doctors_form.elements["Doctor_name"].value);
     data.append('Specialized', add_doctors_form.elements["Specialized"].value);
-
-    
-
-
-
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/doctors.php", true);
-
     xhr.onload = function() {
         var myModal = document.getElementById("add-doctors");
         var modal = bootstrap.Modal.getInstance(myModal);
         modal.hide();
-
-
         if (this.responseText == 1) {
             alert("success", "New doctor added!");
             add_doctors_form.reset();
-
         } else {
             alert("error", "Server Down!");
         }
@@ -40,7 +31,6 @@ function get_all_doctors() {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/doctors.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
     xhr.onload = function() {
         document.getElementById('doctors-data').innerHTML = this.responseText;
     };
@@ -50,26 +40,20 @@ function get_all_doctors() {
 function submit_edit_doctors() {
     let data = new FormData();
     data.append('edit_doctors', '');
+    data.append('Doctor_id', edit_doctors_form.elements["Doctor_id"].value);
     data.append('Doctor_name', edit_doctors_form.elements["Doctor_name"].value);
     data.append('Specialized', edit_doctors_form.elements["Specialized"].value);
-
-
-
-
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/doctors.php", true);
-
     xhr.onload = function() {
         console.log(this.responseText);
         var myModal = document.getElementById("edit-doctors");
         var modal = bootstrap.Modal.getInstance(myModal);
         modal.hide();
-
-
         if (this.responseText == 1) {
             alert('success', 'Doctor data edited!');
             edit_doctors_form.reset();
-            get_all_rooms();
+            get_all_doctors();
         } else {
             alert('error', 'Server Down!');
         }
@@ -102,8 +86,9 @@ function edit_details(id) {
 
     xhr.onload = function() {
         let data = JSON.parse(this.responseText);
-        edit_room_form.elements['Doctor_name'].value = data.roomdata.Doctor_name;
-        edit_room_form.elements['Specialized'].value = data.roomdata.Specialized;
+        alert(data);
+        edit_doctors_form.elements['Doctor_name'].value = data.doctordata.Doctor_name;
+        edit_doctors_form.elements['Specialized'].value = data.doctordata.Specialized;
     }
     xhr.send('get_doctors='+id);
 }
@@ -118,12 +103,12 @@ edit_doctors_form.addEventListener('submit', function(e) {
 
 
 
-function remove_room(room_id)
+function remove_doctors(id)
 {
     if(confirm("Are you sure, you want to delete this doctor?"))
     {
     let data = new FormData();
-    data.append('doctors_id',room_id);
+    data.append('Doctor_id',id);
     data.append('remove_doctors','');
     let xhr = new XMLHttpRequest();
     xhr.open("POST","ajax/doctors.php",true);
@@ -132,7 +117,7 @@ function remove_room(room_id)
         console.log(this.responseText);
         if (this.responseText == 1) {
             alert('success','Doctors Removed!');
-            get_all_rooms();
+            get_all_doctors();
         } 
         else{
             alert('error','Doctors Removal failed!');      
