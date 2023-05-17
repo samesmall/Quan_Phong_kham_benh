@@ -18,7 +18,7 @@
                 <ul class="nav nav-pills flex-column">
 
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                      <button class="btn px-3 w-100 shadow-none text-start d-flex align-items-center">
                      <span><i class="bi bi-clipboard"></i> Bookings</span>
                      </button>
@@ -44,15 +44,24 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link border mt-2 text-dark"  href="features_facilities.php"><i class="bi bi-card-checklist"></i> Features & Facilities</a>
-                    </li>
-                    <li class="nav-item">
+                    </li> -->
+                    <!-- <li class="nav-item">
                         <a class="nav-link border mt-2 text-dark"  href="carousel.php"><i class="bi bi-file-image"></i> Carousel</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link border mt-2 text-dark"  href="doctors.php"><i class="bi bi-person-circle"></i> Doctors</a>
+                        <a class="nav-link border mt-2 text-dark"  href="doctors.php"><i class="bi bi-people-fill"></i> Doctors</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link border mt-2 text-dark"  href="patients.php"><i class="bi bi-heart-pulse-fill"></i> Patients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link border mt-2 text-dark"  href="appointments.php"><i class="bi bi-calendar-check-fill "></i> Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link border mt-2 text-dark"  href="testresults.php"><i class="bi bi-clipboard2-check-fill"></i> Testresults</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link border mt-2 text-dark"  href="admins.php"><i class="bi bi-person-circle"></i> Admin</a>
                     </li>
                 </ul>
             </div>

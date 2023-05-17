@@ -2,7 +2,7 @@
     $hname = 'localhost';
     $uname = 'root';
     $pass = '';
-     //$db = 'homestayproject';
+    //  $db = 'homestayproject';
      $db = 'quan_ly_kham_benh';
     $con = mysqli_connect($hname,$uname,$pass,$db);
     if(!$con){
