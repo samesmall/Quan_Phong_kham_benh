@@ -1,10 +1,10 @@
-<div class="container-fluid p-3 d-flex align-items-center justify-content-between sticky-top" style="background:rgba(161, 174, 175, 1)">
-    <h3 class="titile-dashbroad mb-0" style="font-family: 'Josefin Sans', sans-serif; color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-hospital"></i> HỆ QUẢN LÝ PHÒNG KHÁM BỆNH</h3>
+<div class="container-fluid p-4 d-flex align-items-center justify-content-between sticky-top" style="background:#BDCDD6">
+    <h3 class="titile-dashbroad mb-0" style=" color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-hospital"></i> HỆ QUẢN LÝ PHÒNG KHÁM BỆNH</h3>
     <a href="logout.php" class="btn btn-danger btn-sm "><i class="bi bi-box-arrow-right "></i> LOG OUT</a>
 </div>
 
 <!-- Menu -->
-<div class="col-lg-2 border-top  border-3 border-secondary" id="dashboard-menu" style="background:rgba(221, 221, 221, 1)">
+<div class="col-lg-2  border-3 border-secondary" id="dashboard-menu" style="background:#6096B4">
 
     <nav class="navbar navbar-expand-lg navbar-dar">
         <div class="container-fluid flex-lg-column align-items-stretch">
@@ -48,20 +48,23 @@
                     <!-- <li class="nav-item">
                         <a class="nav-link border mt-2 text-dark"  href="carousel.php"><i class="bi bi-file-image"></i> Carousel</a>
                     </li> -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link border mt-2 text-dark"  href="features_facilities.php"><i class="bi bi-card-checklist"></i> Features & Facilities</a>
+                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link border mt-2 text-dark"  href="doctors.php"><i class="bi bi-people-fill"></i> Doctors</a>
+                        <a class="nav-link border mt-2 text-white"  href="doctors.php"><i class="bi bi-people-fill"></i> Doctors</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border mt-2 text-dark"  href="patients.php"><i class="bi bi-heart-pulse-fill"></i> Patients</a>
+                        <a class="nav-link border mt-2 text-white"  href="patients.php"><i class="bi bi-heart-pulse-fill"></i> Patients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border mt-2 text-dark"  href="appointments.php"><i class="bi bi-calendar-check-fill "></i> Appointments</a>
+                        <a class="nav-link border mt-2 text-white"  href="appointments.php"><i class="bi bi-calendar-check-fill "></i> Appointments</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border mt-2 text-dark"  href="testresults.php"><i class="bi bi-clipboard2-check-fill"></i> Testresults</a>
+                        <a class="nav-link border mt-2 text-white"  href="testresults.php"><i class="bi bi-clipboard2-check-fill"></i> Testresults</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border mt-2 text-dark"  href="admins.php"><i class="bi bi-person-circle"></i> Admin</a>
+                        <a class="nav-link border mt-2 text-white"  href="admins.php"><i class="bi bi-person-circle"></i> Admin</a>
                     </li>
                 </ul>
             </div>

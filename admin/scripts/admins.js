@@ -19,7 +19,9 @@ function add_admins() {
         modal.hide();
         if (this.responseText == 1) {
             alert("success", "New admin added!");
-            add_admins_form.reset();
+            add_admins_form.elements['admin_name'].value = '';
+            add_admins_form.elements['admin_pass'].value = '';
+            get_all_admins(); 
         } else {
             alert("error", "Server Down!");
         }

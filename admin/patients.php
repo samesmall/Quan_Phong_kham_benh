@@ -29,9 +29,9 @@ adminLogin();
             <div class="card-body">
 
                 <div class="d-flex align-self-center justify-content-between">
-                    <h3 class="mt-1" style="font-family: 'Josefin Sans', sans-serif; color:rgba(15, 74, 78, 1); font-weight: 700;">PATIENTS</h3>
+                    <h3 class="mt-1" style="font-family: 'Josefin Sans', sans-serif; color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-heart-pulse-fill"></i> PATIENTS</h3>
                     <div class="text-end mb-3">
-                        <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#add-patients">
+                        <button type="button" class="btn btn-success shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#add-patients">
                             <i class="bi bi-plus-square"></i> Add
                         </button>
                     </div>
@@ -41,15 +41,15 @@ adminLogin();
                 <div class="table-responsive-lg" style="height:450px;border-radius: 10px;background:white">
                     <table class="table table-hover border" style="width: 100%">
                         <thead>
-                            <tr class="text-dark">
-                                <th scope="col-sm" style="width: 10%">ID<br>Số thứ tự</th>
-                                <th scope="col-sm" style="width: 10%">Patients_id<br>Mã bệnh nhân</th>
-                                <th scope="col" style="width: 20%">Patients_name<br>Tên bệnh nhân</th>
-                                <th scope="col-sm" style="width: 10%">Date of birth<br>Ngày/Tháng/Năm sinh</th>
-                                <th scope="col-sm" style="width: 10%">Gender<br>Giới tính</th>
-                                <th scope="col-sm" style="width: 10%">Address<br>Địa chỉ</th>
-                                <th scope="col-sm" style="width: 10%">Number<br>Số điện thoại</th>
-                                <th scope="col-sm" style="width: 10%">Action<br>Thao tác</th>
+                        <tr class="text-white text-left" style="background:#99627A;font-size:13px;font-family:'Roboto Mono';">
+                                <th scope="col-sm" >ID<br>Số thứ tự</th>
+                                <th scope="col-sm">Patients_id<br>Mã bệnh nhân</th>
+                                <th scope="col" >Patients_name<br>Tên bệnh nhân</th>
+                                <th scope="col-sm" >Date of birth<br>Ngày/Tháng/Năm sinh</th>
+                                <th scope="col-sm" >Gender<br>Giới tính</th>
+                                <th scope="col-sm" >Address<br>Địa chỉ</th>
+                                <th scope="col-sm" >Number<br>Số điện thoại</th>
+                                <th scope="col-sm">Action<br>Thao tác</th>
                             </tr>
                         </thead>
                         <tbody id="patients-data">

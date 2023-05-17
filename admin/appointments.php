@@ -31,7 +31,7 @@ adminLogin();
                 <div class="d-flex align-self-center justify-content-between">
                     <h3 class="mt-1" style="font-family: 'Josefin Sans', sans-serif; color:rgba(15, 74, 78, 1); font-weight: 700;">PATIENTS</h3>
                     <div class="text-end mb-3">
-                        <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#add-patients">
+                        <button type="button" class="btn btn-success shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#add-patients">
                             <i class="bi bi-plus-square"></i> Add
                         </button>
                     </div>
@@ -41,7 +41,7 @@ adminLogin();
                 <div class="table-responsive-lg" style="height:450px;border-radius: 10px;background:white">
                     <table class="table table-hover border" style="width: 100%">
                         <thead>
-                            <tr class="text-dark">
+                        <tr class="text-white text-left" style="background:#99627A;font-size:13px;font-family:'Roboto Mono';">
                                 <th scope="col-sm" style="width: 10%">ID<br>Số thứ tự</th>
                                 <th scope="col-sm" style="width: 10%">Patients_id<br>Mã bệnh nhân</th>
                                 <th scope="col" style="width: 20%">Patients_name<br>Tên bệnh nhân</th>

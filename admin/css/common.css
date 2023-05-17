@@ -3,17 +3,47 @@
   --teal_hover: #279e8c;
 }
 
-* {
+/* * {
   font-family: "Poppins", sans-serif;
-}
-
-.h-font {
+} */
+/* .h-font {
   font-family: "Merienda", cursive;
 }
 
 .a-font{
   font-family: 'Josefin Sans', sans-serif;
+} */
+* {
+  font-family: "Roboto Mono", monospace;
 }
+.h-font {
+  font-family: "Roboto Mono", monospace;
+}
+tbody{
+  font-size: 13px;
+}
+.a-font{
+  font-family: 'Roboto Mono', monospace;
+}
+h1{
+  font-family: 'Roboto Mono', monospace;
+}
+h2{
+  font-family: 'Roboto Mono', monospace;
+}
+h3{
+  font-family: 'Roboto Mono', monospace;
+}
+h4{
+  font-family: 'Roboto Mono', monospace;
+}
+h5{
+  font-family: 'Roboto Mono', monospace;
+}
+p{
+  font-family: 'Roboto Mono', monospace;
+}
+
 
 
 /* Chrome, Safari, Edge, Opera */
@@ -84,7 +114,7 @@ input[type="number"] {
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: rgb(255, 255, 255);
-  background-color: rgb(90, 133, 144);
+  background-color: #93BFCF;
 }
 
 .nav-link:focus, .nav-link:hover {

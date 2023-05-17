@@ -29,9 +29,9 @@ adminLogin();
             <div class="card-body">
 
                 <div class="d-flex align-self-center justify-content-between">
-                    <h3 class="mt-1" style="font-family: 'Josefin Sans', sans-serif; color:rgba(15, 74, 78, 1); font-weight: 700;">TEST RESULTS</h3>
+                    <h3 class="mt-1" style=" color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-clipboard2-check-fill"></i> TEST RESULTS</h3>
                     <div class="text-end mb-3">
-                        <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#add-testresults">
+                        <button type="button" class="btn btn-success shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#add-testresults">
                             <i class="bi bi-plus-square"></i> Add
                         </button>
                     </div>
@@ -41,7 +41,7 @@ adminLogin();
                 <div class="table-responsive-lg" style="height:450px;border-radius: 10px;background:white">
                     <table class="table table-hover border" style="width: 100%">
                         <thead>
-                            <tr class="text-dark">
+                        <tr class="text-white text-left" style="background:#99627A;font-size:13px;font-family:'Roboto Mono';">
                                 <th scope="col-sm" style="width: 20%">ID<br>Số thứ tự</th>
                                 <th scope="col-sm" style="width: 20%">Result_id<br>Mã kết qủa</th>
                                 <th scope="col" style="width: 20%">Type of result<br>Loại kết quả</th>

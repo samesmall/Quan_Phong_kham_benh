@@ -9,12 +9,12 @@ if(isset($_POST['add_admins']))
 {
 
   $frm_data = filteration($_POST);
-  $flag = 0;
+ 
   
-  $q1 = "INSERT INTO `admin_cred`( `admin_name`, `admin_pass`) VALUES (?,?,?,?,?)";
+  $q1 = "INSERT INTO `admin_cred`( `admin_name`, `admin_pass`) VALUES (?,?)";
   $values = [$frm_data['admin_name'], $frm_data['admin_pass']];
 
-  if(insert($q1,$values,'si')){
+  if(insert($q1,$values,'ss')){
     $flag = 1;
   }
 
