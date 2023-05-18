@@ -29,7 +29,7 @@ adminLogin();
             <div class="card-body">
 
                 <div class="d-flex align-self-center justify-content-between">
-                    <h3 class="mt-1" style="font-family: 'Josefin Sans', sans-serif; color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-heart-pulse-fill"></i> PATIENTS</h3>
+                    <h3 class="mt-1" style="font-family: 'Josefin Sans', sans-serif; color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-heart-pulse-fill"> </i> PATIENTS</h3>
                     <div class="text-end mb-3">
                         <button type="button" class="btn btn-success shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#add-patients">
                             <i class="bi bi-plus-square"></i> Add
@@ -41,7 +41,7 @@ adminLogin();
                 <div class="table-responsive-lg" style="height:450px;border-radius: 10px;background:white">
                     <table class="table table-hover border" style="width: 100%">
                         <thead>
-                        <tr class="text-white text-left" style="background:#99627A;font-size:13px;font-family:'Roboto Mono';">
+                        <tr class="text-white text-left" style="background:#6096B4;font-size:13px;font-family:'Roboto Mono';">
                                 <th scope="col-sm" >ID<br>Số thứ tự</th>
                                 <th scope="col-sm">Patients_id<br>Mã bệnh nhân</th>
                                 <th scope="col" >Patients_name<br>Tên bệnh nhân</th>
@@ -66,7 +66,7 @@ adminLogin();
 
     <!-- add room modal -->
     <div class="modal fade" id="add-patients" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
             <form id="add_patients_form" autocomplete="off">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -76,7 +76,7 @@ adminLogin();
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Patients name</label>
-                                <input type="text" id="Patient_name" class="form-control shadow-none" required>
+                                <input type="text" id="Patients_name" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Date of birth</label>
@@ -90,12 +90,12 @@ adminLogin();
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Address</label>
-                                <input type="text" id="address" class="form-control shadow-none" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Number</label>
                                 <input type="number" id="number" class="form-control shadow-none" required>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label fw-bold">Address</label>
+                                <input type="text" id="address" class="form-control shadow-none" required>
                             </div>
                         </div>
 
@@ -118,10 +118,10 @@ adminLogin();
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <input type="hidden" name="Patients_id">
+                            <input type="hidden" name="patients_id">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Patients name</label>
-                                <input type="text" id="Patient_name" class="form-control shadow-none" required>
+                                <input type="text" id="Patients_name" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Date of birth</label>

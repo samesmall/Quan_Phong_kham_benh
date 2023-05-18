@@ -12,7 +12,7 @@ adminLogin();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Patients</title>
+    <title>Admin Panel - Appointments</title>
     <?php require('inc/link.php'); ?>
     <?php require('inc/scripts.php'); ?>
 
@@ -29,9 +29,9 @@ adminLogin();
             <div class="card-body">
 
                 <div class="d-flex align-self-center justify-content-between">
-                    <h3 class="mt-1" style="font-family: 'Josefin Sans', sans-serif; color:rgba(15, 74, 78, 1); font-weight: 700;">PATIENTS</h3>
+                    <h3 class="mt-1" style="color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-calendar-check-fill"> </i> APPOINTMENT</h3>
                     <div class="text-end mb-3">
-                        <button type="button" class="btn btn-success shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#add-patients">
+                        <button type="button" class="btn btn-success shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#add-appointments">
                             <i class="bi bi-plus-square"></i> Add
                         </button>
                     </div>
@@ -41,18 +41,15 @@ adminLogin();
                 <div class="table-responsive-lg" style="height:450px;border-radius: 10px;background:white">
                     <table class="table table-hover border" style="width: 100%">
                         <thead>
-                        <tr class="text-white text-left" style="background:#99627A;font-size:13px;font-family:'Roboto Mono';">
-                                <th scope="col-sm" style="width: 10%">ID<br>Số thứ tự</th>
-                                <th scope="col-sm" style="width: 10%">Patients_id<br>Mã bệnh nhân</th>
-                                <th scope="col" style="width: 20%">Patients_name<br>Tên bệnh nhân</th>
-                                <th scope="col-sm" style="width: 10%">Date of birth<br>Ngày/Tháng/Năm sinh</th>
-                                <th scope="col-sm" style="width: 10%">Gender<br>Giới tính</th>
-                                <th scope="col-sm" style="width: 10%">Address<br>Địa chỉ</th>
-                                <th scope="col-sm" style="width: 10%">Number<br>Số điện thoại</th>
-                                <th scope="col-sm" style="width: 10%">Action<br>Thao tác</th>
+                        <tr class="text-white text-left" style="background:#6096B4;font-size:13px;font-family:'Roboto Mono';">
+                                <th scope="col-sm" >ID<br>Số thứ tự</th>
+                                <th scope="col-sm">Doctor_id<br>Mã bác sĩ</th>
+                                <th scope="col-sm" >Appointment_time<br>Lịch hẹn</th>
+                                <th scope="col-sm" >Note<br>Chi tiết</th>
+                                <th scope="col-sm" >Action<br>Thao tác</th>
                             </tr>
                         </thead>
-                        <tbody id="patients-data">
+                        <tbody id="appointments-data">
                         </tbody>
 
                     </table>
@@ -65,37 +62,23 @@ adminLogin();
     </div>
 
     <!-- add room modal -->
-    <div class="modal fade" id="add-patients" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="add-appointments" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <form id="add_patients_form" autocomplete="off">
+            <form id="add_appointments_form" autocomplete="off">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add New patients</h5>
+                        <h5 class="modal-title">Add New Appointments</h5>
                     </div>
                     <div class="modal-body">
                         <div class="row">
+                         
                             <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Patients name</label>
-                                <input type="text" id="Patient_name" class="form-control shadow-none" required>
+                                <label class="form-label fw-bold">Appointment_time</label>
+                                <input type="date" id="Appointment_time" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Date of birth</label>
-                                <input type="date" id="date_of_birth" class="form-control shadow-none" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Gender</label>
-                                <select id="gender" class="form-select shadow-none">
-                                    <option value="0">Nữ</option>
-                                    <option value="1">Nam</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Address</label>
-                                <input type="text" id="address" class="form-control shadow-none" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Number</label>
-                                <input type="number" id="number" class="form-control shadow-none" required>
+                                <label class="form-label fw-bold">Note</label>
+                                <input type="text" id="note" class="form-control shadow-none" required>
                             </div>
                         </div>
 
@@ -109,38 +92,23 @@ adminLogin();
         </div>
     </div>
     <!-- edit doctor modal -->
-    <div class="modal fade" id="edit-patients" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="edit-appointments" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <form id="edit_patients_form" autocomplete="off">
+            <form id="edit_appointments_form" autocomplete="off">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit Patients</h5>
+                        <h5 class="modal-title">Edit Appointments</h5>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <input type="hidden" name="Patients_id">
+                            <input type="hidden" name="Appointment_id">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Patients name</label>
-                                <input type="text" id="Patient_name" class="form-control shadow-none" required>
+                                <label class="form-label fw-bold">Appointment_time</label>
+                                <input type="date" id="Appointment_time" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Date of birth</label>
-                                <input type="date" id="date_of_birth" class="form-control shadow-none" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Gender</label>
-                                <select id="gender" class="form-select shadow-none">
-                                    <option value="0">Nữ</option>
-                                    <option value="1">Nam</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Address</label>
-                                <input type="text" id="address" class="form-control shadow-none" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Number</label>
-                                <input type="number" id="number" class="form-control shadow-none" required>
+                                <label class="form-label fw-bold">Note</label>
+                                <input type="text" id="note" class="form-control shadow-none" required>
                             </div>
                         </div>
 
@@ -158,7 +126,7 @@ adminLogin();
 
 
     <?php require('inc/scripts.php') ?>
-    <script src="scripts/patients.js"></script>
+    <script src="scripts/appointments.js"></script>
 </body>
 
 </html>

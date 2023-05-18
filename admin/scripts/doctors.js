@@ -19,7 +19,9 @@ function add_doctors() {
         modal.hide();
         if (this.responseText == 1) {
             alert("success", "New doctor added!");
-            add_doctors_form.reset();
+            add_doctors_form.elements["Doctor_name"].value = '';
+            add_doctors_form.elements["Specialized"].value = '';
+            get_all_doctors();
         } else {
             alert("error", "Server Down!");
         }
@@ -87,6 +89,7 @@ function edit_details(id) {
     xhr.onload = function() {
         let data = JSON.parse(this.responseText);
         alert(data);
+        edit_doctors_form.elements['Doctor_id'].value = data.doctordata.Doctor_id;
         edit_doctors_form.elements['Doctor_name'].value = data.doctordata.Doctor_name;
         edit_doctors_form.elements['Specialized'].value = data.doctordata.Specialized;
     }

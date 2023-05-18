@@ -9,7 +9,7 @@ add_patients_form.addEventListener('submit', function(e) {
 function add_patients() {
     let data = new FormData();
     data.append('add_patients', '');
-    data.append('Patient_name', add_patients_form.elements["Patient_name"].value);
+    data.append('Patients_name', add_patients_form.elements["Patients_name"].value);
     data.append('date_of_birth', add_patients_form.elements["date_of_birth"].value);
     data.append('gender', add_patients_form.elements["gender"].value);
     data.append('address', add_patients_form.elements["address"].value);
@@ -22,7 +22,12 @@ function add_patients() {
         modal.hide();
         if (this.responseText == 1) {
             alert("success", "New patient added!");
-            add_patients_form.reset();
+            add_patients_form.elements["Patients_name"].value = '';
+            add_patients_form.elements["date_of_birth"].value = '';
+            add_patients_form.elements["gender"].value = '';
+            add_patients_form.elements["address"].value = '';
+            add_patients_form.elements["number"].value = '';
+            get_all_patients();
         } else {
             alert("error", "Server Down!");
         }
@@ -43,7 +48,8 @@ function get_all_patients() {
 function submit_edit_patients() {
     let data = new FormData();
     data.append('edit_patients', '');
-    data.append('Patient_name', add_patients_form.elements["Patient_name"].value);
+    data.append('patients_id', edit_doctors_form.elements["patients_id"].value);
+    data.append('Patients_name', add_patients_form.elements["Patients_name"].value);
     data.append('date_of_birth', add_patients_form.elements["date_of_birth"].value);
     data.append('gender', add_patients_form.elements["gender"].value);
     data.append('address', add_patients_form.elements["address"].value);
@@ -82,7 +88,7 @@ function toggle_status(id, val) {
     xhr.send('toggle_status=' + id + '&value=' + val);
 }
 
-let edit_doctors_form = document.getElementById('edit_doctors_form');
+let edit_patients_form = document.getElementById('edit_patients_form');
 
 function edit_details(id) {
     let xhr = new XMLHttpRequest();
@@ -91,11 +97,14 @@ function edit_details(id) {
 
     xhr.onload = function() {
         let data = JSON.parse(this.responseText);
-        alert(data);
-        edit_doctors_form.elements['Doctor_name'].value = data.doctordata.Doctor_name;
-        edit_doctors_form.elements['Specialized'].value = data.doctordata.Specialized;
+        edit_patients_form.elements["patients_id"].value = data.patientdata.patients_id;
+        edit_patients_form.elements["Patients_name"].value = data.patientdata.Patients_name;
+        edit_patients_form.elements["date_of_birth"].value = data.patientdata.date_of_birth;
+        edit_patients_form.elements["gender"].value = data.patientdata.gender;
+        edit_patients_form.elements["address"].value = data.patientdata.address;
+        edit_patients_form.elements["number"].value = data.patientdata.number;
     }
-    xhr.send('get_doctors='+id);
+    xhr.send('get_patients='+id);
 }
 
 edit_patients_form.addEventListener('submit', function(e) {

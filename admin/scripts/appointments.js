@@ -1,28 +1,28 @@
 
-let add_patients_form = document.getElementById('add_patients_form');
+let add_appointments_form = document.getElementById('add_appointments_form');
 
-add_patients_form.addEventListener('submit', function(e) {
+add_appointments_form.addEventListener('submit', function(e) {
     e.preventDefault();
-    add_patients();
+    add_appointments();
 });
 
-function add_patients() {
+function add_appointments() {
     let data = new FormData();
-    data.append('add_patients', '');
+    data.append('add_appointments', '');
     data.append('Patient_name', add_patients_form.elements["Patient_name"].value);
     data.append('date_of_birth', add_patients_form.elements["date_of_birth"].value);
     data.append('gender', add_patients_form.elements["gender"].value);
     data.append('address', add_patients_form.elements["address"].value);
     data.append('number', add_patients_form.elements["number"].value);
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "ajax/patients.php", true);
+    xhr.open("POST", "ajax/appointments.php", true);
     xhr.onload = function() {
-        var myModal = document.getElementById("add-patients");
+        var myModal = document.getElementById("add-appointments");
         var modal = bootstrap.Modal.getInstance(myModal);
         modal.hide();
         if (this.responseText == 1) {
-            alert("success", "New patient added!");
-            add_patients_form.reset();
+            alert("success", "New appointments added!");
+            add_appointments_form.reset();
         } else {
             alert("error", "Server Down!");
         }
@@ -30,35 +30,35 @@ function add_patients() {
     xhr.send(data);
 }
 
-function get_all_patients() {
+function get_all_appointments() {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "ajax/patients.php", true);
+    xhr.open("POST", "ajax/appointments.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onload = function() {
-        document.getElementById('patients-data').innerHTML = this.responseText;
+        document.getElementById('appointments-data').innerHTML = this.responseText;
     };
-    xhr.send('get_all_patients');
+    xhr.send('get_all_appointments');
 }
 
-function submit_edit_patients() {
+function submit_edit_appointments() {
     let data = new FormData();
-    data.append('edit_patients', '');
+    data.append('edit_appointments', '');
     data.append('Patient_name', add_patients_form.elements["Patient_name"].value);
     data.append('date_of_birth', add_patients_form.elements["date_of_birth"].value);
     data.append('gender', add_patients_form.elements["gender"].value);
     data.append('address', add_patients_form.elements["address"].value);
     data.append('number', add_patients_form.elements["number"].value);
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "ajax/patients.php", true);
+    xhr.open("POST", "ajax/appointments.php", true);
     xhr.onload = function() {
         console.log(this.responseText);
-        var myModal = document.getElementById("edit-patients");
+        var myModal = document.getElementById("edit-appointments");
         var modal = bootstrap.Modal.getInstance(myModal);
         modal.hide();
         if (this.responseText == 1) {
-            alert('success', 'Patients data edited!');
+            alert('success', 'Appointments data edited!');
             edit_patients_form.reset();
-            get_all_patients();
+            get_all_appointments();
         } else {
             alert('error', 'Server Down!');
         }
@@ -82,11 +82,11 @@ function toggle_status(id, val) {
     xhr.send('toggle_status=' + id + '&value=' + val);
 }
 
-let edit_doctors_form = document.getElementById('edit_doctors_form');
+let edit_appointments_form = document.getElementById('edit_appointments_form');
 
 function edit_details(id) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "ajax/patients.php", true);
+    xhr.open("POST", "ajax/appointments.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function() {
@@ -98,9 +98,9 @@ function edit_details(id) {
     xhr.send('get_doctors='+id);
 }
 
-edit_patients_form.addEventListener('submit', function(e) {
+edit_appointments_form.addEventListener('submit', function(e) {
     e.preventDefault();
-    submit_edit_patients();
+    submit_edit_appointments();
 });
 
 
@@ -108,24 +108,24 @@ edit_patients_form.addEventListener('submit', function(e) {
 
 
 
-function remove_patients(id)
+function remove_appointments(id)
 {
-    if(confirm("Are you sure, you want to delete this patients?"))
+    if(confirm("Are you sure, you want to delete this appointments?"))
     {
     let data = new FormData();
-    data.append('patients_id',id);
-    data.append('remove_patients','');
+    data.append('Appointment_id',id);
+    data.append('remove_appointments','');
     let xhr = new XMLHttpRequest();
-    xhr.open("POST","ajax/patients.php",true);
+    xhr.open("POST","ajax/appointments.php",true);
     xhr.onload = function() 
     {
         console.log(this.responseText);
         if (this.responseText == 1) {
-            alert('success','Patients Removed!');
-            get_all_patients();
+            alert('success','Appointments Removed!');
+            get_all_appointments();
         } 
         else{
-            alert('error','Patients Removal failed!');      
+            alert('error','Appointments Removal failed!');      
         }
     }
     xhr.send(data);
@@ -133,5 +133,5 @@ function remove_patients(id)
 }
 
 window.onload = function() {
-    get_all_patients();
+    get_all_appointments();
 }

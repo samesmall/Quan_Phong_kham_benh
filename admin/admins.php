@@ -29,7 +29,7 @@ adminLogin();
             <div class="card-body">
 
                 <div class="d-flex align-self-center justify-content-between">
-                    <h3 class="mt-1" style=" color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-person-circle"></i> USER MANAGEMENT</h3>
+                    <h3 class="mt-1" style=" color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-person-circle"> </i> USER MANAGEMENT</h3>
                     <div class="text-end mb-3">
                         <button type="button" class="btn btn-success shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#add-admins">
                             <i class="bi bi-plus-square"></i> Add
@@ -41,7 +41,7 @@ adminLogin();
                 <div class="table-responsive-lg" style="height:450px;border-radius: 10px;background:white">
                     <table class="table table-hover border" style="width: 100%">
                         <thead>
-                            <tr class="text-white text-left" style="background:#99627A;font-size:13px;font-family:'Roboto Mono';">
+                            <tr class="text-white text-left" style="background:#6096B4;font-size:13px;font-family:'Roboto Mono';">
                                 <th scope="col-sm">ID<br>Số thứ tự</th>
                                 <th scope="col-sm">Admin name<br>Tên người quản lý</th>
                                 <th scope="col">Admin Password<br>Mật khẩu</th>

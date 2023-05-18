@@ -1,28 +1,27 @@
 
-let add_patients_form = document.getElementById('add_patients_form');
+let add_testresults_form = document.getElementById('add_testresults_form');
 
-add_patients_form.addEventListener('submit', function(e) {
+add_testresults_form.addEventListener('submit', function(e) {
     e.preventDefault();
-    add_patients();
+    add_testresults();
 });
 
-function add_patients() {
+function add_testresults() {
     let data = new FormData();
-    data.append('add_patients', '');
-    data.append('Patient_name', add_patients_form.elements["Patient_name"].value);
-    data.append('date_of_birth', add_patients_form.elements["date_of_birth"].value);
-    data.append('gender', add_patients_form.elements["gender"].value);
-    data.append('address', add_patients_form.elements["address"].value);
-    data.append('number', add_patients_form.elements["number"].value);
+    data.append('add_testresults', '');
+    data.append('type_of_result', add_testresults_form.elements["type_of_result"].value);
+    data.append('result_description', add_testresults_form.elements["result_description"].value);
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "ajax/patients.php", true);
+    xhr.open("POST", "ajax/testresults.php", true);
     xhr.onload = function() {
-        var myModal = document.getElementById("add-patients");
+        var myModal = document.getElementById("add-testresults");
         var modal = bootstrap.Modal.getInstance(myModal);
         modal.hide();
         if (this.responseText == 1) {
-            alert("success", "New patient added!");
-            add_patients_form.reset();
+            alert("success", "New test results added!");
+            add_testresults_form.elements["type_of_result"].value = '';
+            add_testresults_form.elements["result_description"].value = '';
+            get_all_testresults();
         } else {
             alert("error", "Server Down!");
         }
@@ -30,35 +29,32 @@ function add_patients() {
     xhr.send(data);
 }
 
-function get_all_patients() {
+function get_all_testresults() {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "ajax/patients.php", true);
+    xhr.open("POST", "ajax/testresults.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onload = function() {
-        document.getElementById('patients-data').innerHTML = this.responseText;
+        document.getElementById('testresults-data').innerHTML = this.responseText;
     };
-    xhr.send('get_all_patients');
+    xhr.send('get_all_testresults');
 }
 
-function submit_edit_patients() {
+function submit_edit_testresults() {
     let data = new FormData();
-    data.append('edit_patients', '');
-    data.append('Patient_name', add_patients_form.elements["Patient_name"].value);
-    data.append('date_of_birth', add_patients_form.elements["date_of_birth"].value);
-    data.append('gender', add_patients_form.elements["gender"].value);
-    data.append('address', add_patients_form.elements["address"].value);
-    data.append('number', add_patients_form.elements["number"].value);
+    data.append('edit_testresults', '');
+    data.append('type_of_result', add_testresults_form.elements["type_of_result"].value);
+    data.append('result_description', add_testresults_form.elements["result_description"].value);
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "ajax/patients.php", true);
+    xhr.open("POST", "ajax/testresults.php", true);
     xhr.onload = function() {
         console.log(this.responseText);
-        var myModal = document.getElementById("edit-patients");
+        var myModal = document.getElementById("edit-testresults");
         var modal = bootstrap.Modal.getInstance(myModal);
         modal.hide();
         if (this.responseText == 1) {
-            alert('success', 'Patients data edited!');
-            edit_patients_form.reset();
-            get_all_patients();
+            alert('success', 'Test results data edited!');
+            edit_testresults_form.reset();
+            get_all_testresults();
         } else {
             alert('error', 'Server Down!');
         }
@@ -68,13 +64,13 @@ function submit_edit_patients() {
 
 function toggle_status(id, val) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "ajax/patients.php", true);
+    xhr.open("POST", "ajax/testresults.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function() {
         if (this.responseText == 1) {
             alert('success', 'Status toggled!');
-            get_all_patients();
+            get_all_testresults();
         } else {
             alert('success', 'Server Down!');
         }
@@ -82,25 +78,24 @@ function toggle_status(id, val) {
     xhr.send('toggle_status=' + id + '&value=' + val);
 }
 
-let edit_doctors_form = document.getElementById('edit_doctors_form');
+let edit_testresults_form = document.getElementById('edit_testresults_form');
 
 function edit_details(id) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "ajax/patients.php", true);
+    xhr.open("POST", "ajax/testresults.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function() {
         let data = JSON.parse(this.responseText);
-        alert(data);
-        edit_doctors_form.elements['Doctor_name'].value = data.doctordata.Doctor_name;
-        edit_doctors_form.elements['Specialized'].value = data.doctordata.Specialized;
+        edit_testresults_form.elements['type_of_result'].value = data.testresultdata.type_of_result;
+        edit_testresults_form.elements['result_description'].value = data.testresultdata.result_description;
     }
-    xhr.send('get_doctors='+id);
+    xhr.send('get_testresults='+id);
 }
 
-edit_patients_form.addEventListener('submit', function(e) {
+edit_testresults_form.addEventListener('submit', function(e) {
     e.preventDefault();
-    submit_edit_patients();
+    submit_edit_testresults();
 });
 
 
@@ -108,24 +103,24 @@ edit_patients_form.addEventListener('submit', function(e) {
 
 
 
-function remove_patients(id)
+function remove_testresults(id)
 {
-    if(confirm("Are you sure, you want to delete this patients?"))
+    if(confirm("Are you sure, you want to delete this test results?"))
     {
     let data = new FormData();
-    data.append('patients_id',id);
-    data.append('remove_patients','');
+    data.append('result_id',id);
+    data.append('remove_testresults','');
     let xhr = new XMLHttpRequest();
-    xhr.open("POST","ajax/patients.php",true);
+    xhr.open("POST","ajax/testresults.php",true);
     xhr.onload = function() 
     {
         console.log(this.responseText);
         if (this.responseText == 1) {
-            alert('success','Patients Removed!');
-            get_all_patients();
+            alert('success','Test results Removed!');
+            get_all_testresults();
         } 
         else{
-            alert('error','Patients Removal failed!');      
+            alert('error','Test results Removal failed!');      
         }
     }
     xhr.send(data);
@@ -133,5 +128,5 @@ function remove_patients(id)
 }
 
 window.onload = function() {
-    get_all_patients();
+    get_all_testresults();
 }

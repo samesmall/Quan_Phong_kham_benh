@@ -29,7 +29,7 @@ adminLogin();
             <div class="card-body">
 
                 <div class="d-flex align-self-center justify-content-between">
-                    <h3 class="mt-1" style="font-family: 'Josefin Sans', sans-serif; color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-people-fill"></i> DOCTORS</h3>
+                    <h3 class="mt-1" style="font-family: 'Josefin Sans', sans-serif; color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-people-fill"> </i> DOCTORS</h3>
                     <div class="text-end mb-3">
                         <button type="button" class="btn btn-success shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#add-doctors">
                             <i class="bi bi-plus-square"></i> Add
@@ -41,7 +41,7 @@ adminLogin();
                 <div class="table-responsive-lg" style="height:450px;border-radius: 10px;background:white">
                     <table class="table table-hover border" style="width: 100%">
                         <thead>
-                        <tr class="text-white text-left" style="background:#99627A;font-size:13px;font-family:'Roboto Mono';">
+                        <tr class="text-white text-left" style="background:#6096B4;font-size:13px;font-family:'Roboto Mono';">
                                 <th scope="col-sm" style="padding-left: 20px">ID<br>Số thứ tự</th>
                                 <th scope="col-sm" style="padding-left: 20px">Doctor_id<br>Mã bác sĩ</th>
                                 <th scope="col" style="width: 30%">Doctor_name<br>Tên bác sĩ</th>
@@ -121,36 +121,7 @@ adminLogin();
                 </div>
             </div>
 
-    <!-- Edit room modal
-    <div class="modal fade" id="edit-doctors" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <form id="edit_doctors_form" autocomplete="off">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Edit Doctor</h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Doctor name</label>
-                                <input type="text" id="Doctor_name" class="form-control shadow-none" required>
-                            </div>
-                            </div>
-                            <div class="col-12 mb-3">
-                                <label class="form-label fw-bold">Specialized</label>
-                                <textarea name="Specialized" rows="4" class="form-control shadow-none" required></textarea>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="reset" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
-                        <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div> -->
+   
 
   
 

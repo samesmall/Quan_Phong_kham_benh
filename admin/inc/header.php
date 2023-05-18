@@ -1,5 +1,5 @@
 <div class="container-fluid p-4 d-flex align-items-center justify-content-between sticky-top" style="background:#BDCDD6">
-    <h3 class="titile-dashbroad mb-0" style=" color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-hospital"></i> HỆ QUẢN LÝ PHÒNG KHÁM BỆNH</h3>
+    <h3 class="titile-dashbroad mb-0" style=" color:rgba(15, 74, 78, 1); font-weight: 700;margin-left:400px;"><i class="bi bi-hospital"></i> HỆ QUẢN LÝ PHÒNG KHÁM BỆNH</h3>
     <a href="logout.php" class="btn btn-danger btn-sm "><i class="bi bi-box-arrow-right "></i> LOG OUT</a>
 </div>
 
@@ -35,20 +35,18 @@
                     </li>
                     </ul>
                     </div>
-                    </li>
-                    <li class="nav-item">
+                    </li> -->
+                    <!-- <li class="nav-item">
                         <a class="nav-link border mt-2 text-dark"  href="users.php"><i class="bi bi-person-circle"></i> Users</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link border mt-2 text-dark"  href="rooms.php"><i class="bi bi-hospital"></i> Rooms</a>
+                    </li> -->
+<!--                    
+                    <li class="nav-item">
+                        <a class="nav-link border mt-2 text-dark"  href="carousel.php"><i class="bi bi-file-image"></i> Carousel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border mt-2 text-dark"  href="features_facilities.php"><i class="bi bi-card-checklist"></i> Features & Facilities</a>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link border mt-2 text-dark"  href="carousel.php"><i class="bi bi-file-image"></i> Carousel</a>
-                    </li> -->
-                    <!-- <li class="nav-item">
                         <a class="nav-link border mt-2 text-dark"  href="features_facilities.php"><i class="bi bi-card-checklist"></i> Features & Facilities</a>
                     </li> -->
                     <li class="nav-item">
@@ -61,7 +59,7 @@
                         <a class="nav-link border mt-2 text-white"  href="appointments.php"><i class="bi bi-calendar-check-fill "></i> Appointments</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border mt-2 text-white"  href="testresults.php"><i class="bi bi-clipboard2-check-fill"></i> Testresults</a>
+                        <a class="nav-link border mt-2 text-white"  href="testresults.php"><i class="bi bi-clipboard2-check-fill"></i> Test results</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link border mt-2 text-white"  href="admins.php"><i class="bi bi-person-circle"></i> Admin</a>

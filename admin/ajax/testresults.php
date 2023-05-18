@@ -5,16 +5,16 @@ require('../inc/essentials.php');
 
 adminLogin();
     
-if(isset($_POST['add_patients']))
+if(isset($_POST['add_testresults']))
 {
 
   $frm_data = filteration($_POST);
   $flag = 0;
   
-  $q1 = "INSERT INTO `patients`( `Patients_name`, `date_of_birth`, `gender`,`address`, `number`) VALUES (?,?,?,?,?)";
-  $values = [$frm_data['Patients_name'], $frm_data['date_of_birth'], $frm_data['gender'], $frm_data['address'],$frm_data['number']];
+  $q1 = "INSERT INTO `testresults`( `type_of_result`, `result_description`) VALUES (?,?)";
+  $values = [$frm_data['type_of_result'], $frm_data['result_description']];
 
-  if(insert($q1,$values,'ssisi')){
+  if(insert($q1,$values,'ss')){
     $flag = 1;
   }
 
@@ -23,15 +23,12 @@ if(isset($_POST['add_patients']))
   }else{
     echo 0;
   }
-
-
-
 }
 
-if(isset($_POST['get_all_patients']))
+if(isset($_POST['get_all_testresults']))
 {
  
-  $res = selectAll('patients');
+  $res = selectAll('testresults');
   $i= 1;
   $data = "";
   while($row = mysqli_fetch_assoc($res))
@@ -39,19 +36,16 @@ if(isset($_POST['get_all_patients']))
     $data.="
     <tr class='align-middle'>
         <td style='padding-left: 20px'>$i</td>
-        <td style='padding-left: 20px'>$row[patients_id]</td>
-        <td>$row[Patients_name]</td>
-        <td>$row[date_of_birth]</td>
-        <td>$row[gender]</td>
-        <td>$row[address]</td>
-        <td>$row[number]</td>
+        <td style='padding-left: 20px'>$row[result_id]</td>
+        <td>$row[type_of_result]</td>
+        <td>$row[result_description]</td>
  
         
         <td>
-          <button type='button' onclick='edit_patients($row[patients_id])' class='btn btn-primary shadow-none btn-sm' data-bs-toggle='modal' data-bs-target='#edit-patients'>
+          <button type='button' onclick='edit_testresults($row[result_id])' class='btn btn-primary shadow-none btn-sm' data-bs-toggle='modal' data-bs-target='#edit-testresults'>
             <i class='bi bi-pencil-square'></i>
           </button>
-          <button type='button' onclick='remove_patients($row[patients_id])' class='btn btn-danger shadow-none btn-sm'>
+          <button type='button' onclick='remove_testresults($row[result_id])' class='btn btn-danger shadow-none btn-sm'>
           <i class='bi bi-trash'></i>
           </button>
         </td>
@@ -62,32 +56,32 @@ if(isset($_POST['get_all_patients']))
   echo $data;
 }
 
-if(isset($_POST['get_patients']))
+if(isset($_POST['get_testresults']))
 {
   $frm_data = filteration($_POST);
-  $res1 = select("SELECT * FROM `patients` WHERE  `patients_id`=?",[$frm_data['get_patients']],'i');
+  $res1 = select("SELECT * FROM `testresults` WHERE  `result_id`=?",[$frm_data['get_testresults']],'i');
 
-  $patientdata = mysqli_fetch_assoc($res1);
+  $testresultsdata = mysqli_fetch_assoc($res1);
  
 
 
-  $data = ["patientdata" => $patientdata];
+  $data = ["testresultdata" => $testresultdata];
 
   $data = json_encode($data);
   echo $data;
 
 }
 
-if(isset($_POST['edit_patients']))
+if(isset($_POST['edit_testresults']))
 {
 
   $frm_data = filteration($_POST);
   $flag = 0;
 
-  $q1 = "UPDATE `patients` SET `patients_name`=?,`date_of_birth`=?,`gender`=?,`address`=?,`number`=? WHERE `patients_id`=?";
-  $values = [$frm_data['Patients_name'], $frm_data['date_of_birth'], $frm_data['gender'], $frm_data['address'], $frm_data['number'], $frm_data['patients_id']];
+  $q1 = "UPDATE `testresults` SET `type_of_result`=?,`result_description`=? WHERE `result_id`=?";
+  $values = [$frm_data['type_of_result'], $frm_data['result_description'],$frm_data['result_id']];
    
-  if(update($q1,$values,'ssisii')){
+  if(update($q1,$values,'ssi')){
     $flag = 1;
   }
 
@@ -102,12 +96,12 @@ if(isset($_POST['edit_patients']))
 
 
 
-if(isset($_POST['remove_patients']))
+if(isset($_POST['remove_testresults']))
 {
     $frm_data = filteration($_POST);
 
     
-    $res1 = delete("DELETE FROM `patients` WHERE `patients_id`=?",[$frm_data['patients_id']],'i');
+    $res1 = delete("DELETE FROM `testresults` WHERE `result_id`=?",[$frm_data['result_id']],'i');
     if($res1)
     {
       echo 1;

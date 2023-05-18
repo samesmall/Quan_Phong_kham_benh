@@ -33,16 +33,20 @@ if(isset($_POST['get_all_patients']))
  
   $res = selectAll('patients');
   $i= 1;
+  
   $data = "";
   while($row = mysqli_fetch_assoc($res))
   {
+    $gender = ($row['gender'] == 1) ? 'Nam' : 'Nữ';
+    
+    
     $data.="
     <tr class='align-middle'>
         <td style='padding-left: 20px'>$i</td>
         <td style='padding-left: 20px'>$row[patients_id]</td>
         <td>$row[Patients_name]</td>
         <td>$row[date_of_birth]</td>
-        <td>$row[gender]</td>
+        <td>$gender</td>
         <td>$row[address]</td>
         <td>$row[number]</td>
  
@@ -84,7 +88,7 @@ if(isset($_POST['edit_patients']))
   $frm_data = filteration($_POST);
   $flag = 0;
 
-  $q1 = "UPDATE `patients` SET `patients_name`=?,`date_of_birth`=?,`gender`=?,`address`=?,`number`=? WHERE `patients_id`=?";
+  $q1 = "UPDATE `patients` SET `Patients_name`=?,`date_of_birth`=?,`gender`=?,`address`=?,`number`=? WHERE `patients_id`=?";
   $values = [$frm_data['Patients_name'], $frm_data['date_of_birth'], $frm_data['gender'], $frm_data['address'], $frm_data['number'], $frm_data['patients_id']];
    
   if(update($q1,$values,'ssisii')){
