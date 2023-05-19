@@ -43,6 +43,7 @@ adminLogin();
                         <thead>
                         <tr class="text-white text-left" style="background:#6096B4;font-size:13px;">
                                 <th scope="col-sm" >ID<br>Số thứ tự</th>
+                                <th scope="col-sm">Appointment_id<br>Mã lịch hẹn</th>
                                 <th scope="col-sm">Doctor_id<br>Mã bác sĩ</th>
                                 <th scope="col-sm">Patient_id<br>Mã bệnh nhân</th>
                                 <th scope="col-sm" >Appointment_time<br>Lịch hẹn</th>
