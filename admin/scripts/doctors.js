@@ -48,7 +48,7 @@ function submit_edit_doctors() {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/doctors.php", true);
     xhr.onload = function() {
-        console.log(this.responseText);
+
         var myModal = document.getElementById("edit-doctors");
         var modal = bootstrap.Modal.getInstance(myModal);
         modal.hide();
@@ -81,7 +81,7 @@ function toggle_status(id, val) {
 
 let edit_doctors_form = document.getElementById('edit_doctors_form');
 
-function edit_details(id) {
+function edit_doctors(id) {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/doctors.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

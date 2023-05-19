@@ -44,8 +44,10 @@ function get_all_testresults() {
 function submit_edit_testresults() {
     let data = new FormData();
     data.append('edit_testresults', '');
-    data.append('type_of_result', add_testresults_form.elements["type_of_result"].value);
-    data.append('result_description', add_testresults_form.elements["result_description"].value);
+    data.append('result_id', edit_testresults_form.elements["result_id"].value);
+    data.append('patients_id', edit_testresults_form.elements["patients_id"].value);
+    data.append('type_of_result', edit_testresults_form.elements["type_of_result"].value);
+    data.append('result_description', edit_testresults_form.elements["result_description"].value);
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/testresults.php", true);
     xhr.onload = function() {
@@ -82,13 +84,15 @@ function toggle_status(id, val) {
 
 let edit_testresults_form = document.getElementById('edit_testresults_form');
 
-function edit_details(id) {
+function edit_testresults(id) {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/testresults.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function() {
         let data = JSON.parse(this.responseText);
+        edit_testresults_form.elements['patients_id'].value = data.testresultdata.patients_id;
+        edit_testresults_form.elements['result_id'].value = data.testresultdata.result_id;
         edit_testresults_form.elements['type_of_result'].value = data.testresultdata.type_of_result;
         edit_testresults_form.elements['result_description'].value = data.testresultdata.result_description;
     }

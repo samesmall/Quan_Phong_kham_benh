@@ -49,7 +49,7 @@ if(isset($_POST['get_all_doctors']))
  
         
         <td>
-          <button type='button' onclick='edit_details($row[Doctor_id])' class='btn btn-primary shadow-none btn-sm' data-bs-toggle='modal' data-bs-target='#edit-doctors'>
+          <button type='button' onclick='edit_doctors($row[Doctor_id])' class='btn btn-primary shadow-none btn-sm' data-bs-toggle='modal' data-bs-target='#edit-doctors'>
             <i class='bi bi-pencil-square'></i>
           </button>
           <button type='button' onclick='remove_doctors($row[Doctor_id])' class='btn btn-danger shadow-none btn-sm'>

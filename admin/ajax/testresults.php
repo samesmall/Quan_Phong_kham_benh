@@ -62,7 +62,7 @@ if(isset($_POST['get_testresults']))
   $frm_data = filteration($_POST);
   $res1 = select("SELECT * FROM `testresults` WHERE  `result_id`=?",[$frm_data['get_testresults']],'i');
 
-  $testresultsdata = mysqli_fetch_assoc($res1);
+  $testresultdata = mysqli_fetch_assoc($res1);
  
 
 
@@ -79,10 +79,10 @@ if(isset($_POST['edit_testresults']))
   $frm_data = filteration($_POST);
   $flag = 0;
 
-  $q1 = "UPDATE `testresults` SET `type_of_result`=?,`result_description`=? WHERE `result_id`=?";
-  $values = [$frm_data['type_of_result'], $frm_data['result_description'],$frm_data['result_id']];
+  $q1 = "UPDATE `testresults` SET `patients_id`=?,`type_of_result`=?,`result_description`=? WHERE `result_id`=?";
+  $values = [$frm_data['patients_id'],$frm_data['type_of_result'], $frm_data['result_description'],$frm_data['result_id']];
    
-  if(update($q1,$values,'ssi')){
+  if(update($q1,$values,'issi')){
     $flag = 1;
   }
 

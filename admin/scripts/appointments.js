@@ -46,11 +46,11 @@ function get_all_appointments() {
 function submit_edit_appointments() {
     let data = new FormData();
     data.append('edit_appointments', '');
-    data.append('Patient_name', add_patients_form.elements["Patient_name"].value);
-    data.append('date_of_birth', add_patients_form.elements["date_of_birth"].value);
-    data.append('gender', add_patients_form.elements["gender"].value);
-    data.append('address', add_patients_form.elements["address"].value);
-    data.append('number', add_patients_form.elements["number"].value);
+    data.append('Appointment_id', edit_appointments_form.elements["Appointment_id"].value);
+    data.append('doctors_id', edit_appointments_form.elements["doctors_id"].value);
+    data.append('patients_id', edit_appointments_form.elements["patients_id"].value);
+    data.append('Appointment_time', edit_appointments_form.elements["Appointment_time"].value);
+    data.append('note', edit_appointments_form.elements["note"].value);
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/appointments.php", true);
     xhr.onload = function() {
@@ -87,7 +87,7 @@ function toggle_status(id, val) {
 
 let edit_appointments_form = document.getElementById('edit_appointments_form');
 
-function edit_details(id) {
+function edit_appointments(id) {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/appointments.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -95,10 +95,14 @@ function edit_details(id) {
     xhr.onload = function() {
         let data = JSON.parse(this.responseText);
         alert(data);
-        edit_doctors_form.elements['Doctor_name'].value = data.doctordata.Doctor_name;
-        edit_doctors_form.elements['Specialized'].value = data.doctordata.Specialized;
+        edit_appointments_form.elements["Appointment_id"].value = data.appointmentdata.Appointment_id;
+        edit_appointments_form.elements["doctors_id"].value = data.appointmentdata.doctors_id;
+        edit_appointments_form.elements["patients_id"].value = data.appointmentdata.patients_id;
+        edit_appointments_form.elements["Appointment_time"].value = data.appointmentdata.Appointment_time;
+        edit_appointments_form.elements["note"].value = data.appointmentdata.note;
+        
     }
-    xhr.send('get_doctors='+id);
+    xhr.send('get_appointments='+id);
 }
 
 edit_appointments_form.addEventListener('submit', function(e) {

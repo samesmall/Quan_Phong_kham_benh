@@ -118,29 +118,53 @@ adminLogin();
     </div>
     <!-- edit doctor modal -->
     <div class="modal fade" id="edit-appointments" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
             <form id="edit_appointments_form" autocomplete="off">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header text-white" style="background:#6096B4">
                         <h5 class="modal-title">Edit Appointments</h5>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <input type="hidden" name="Appointment_id">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Appointment_time</label>
-                                <input type="date" id="Appointment_time" class="form-control shadow-none" required>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label fw-bold">Doctor Name</label>
+                                <select id="doctors_id" class="form-control shadow-none" required>
+                                    <?php
+                                    $res = selectAll('doctors');
+                                    echo "<option value=''>Select doctor</option>";
+                                    while ($row = mysqli_fetch_assoc($res)) {
+                                        echo "<option value='" . $row['Doctor_id'] . "'>" . $row['Doctor_name'] . "</option>";
+                                    }
+                                    ?>
+                                </select>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label fw-bold">Patient Name</label>
+                                <select id="patients_id" class="form-control shadow-none" required>
+                                    <?php
+                                    $res = selectAll('patients');
+                                    echo "<option value=''>Select patient</option>";
+                                    while ($row = mysqli_fetch_assoc($res)) {
+                                        echo "<option value='" . $row['patients_id'] . "'>" . $row['Patients_name'] . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label fw-bold">Appointment_time</label>
+                                <input type="datetime-local" id="Appointment_time" class="form-control shadow-none" required>
+                            </div>
+                            <div class="col-md-12 mb-3">
                                 <label class="form-label fw-bold">Note</label>
-                                <input type="text" id="note" class="form-control shadow-none" required>
+                                <textarea name="note" rows="4" class="form-control shadow-none" required></textarea>
                             </div>
                         </div>
 
                     </div>
                     <div class="modal-footer">
                         <button type="reset" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
-                        <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
+                        <button type="submit" class="btn custom-bg text-white shadow-none" >SUBMIT</button>
                     </div>
                 </div>
             </form>

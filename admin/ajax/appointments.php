@@ -85,16 +85,16 @@ if(isset($_POST['get_appointments']))
 
 }
 
-if(isset($_POST['edit_patients']))
+if(isset($_POST['edit_appointments']))
 {
 
   $frm_data = filteration($_POST);
   $flag = 0;
 
-  $q1 = "UPDATE `patients` SET `patients_name`=?,`date_of_birth`=?,`gender`=?,`address`=?,`number`=? WHERE `patients_id`=?";
-  $values = [$frm_data['Patients_name'], $frm_data['date_of_birth'], $frm_data['gender'], $frm_data['address'], $frm_data['number'], $frm_data['patients_id']];
+  $q1 = "UPDATE `appointments` SET `Appointment_time`=?,`doctors_id`=?,`Appointment_id`=?,`note`=? WHERE `patients_id`=?";
+  $values = [$frm_data['Appointment_time'], $frm_data['doctors_id'], $frm_data['Appointment_id'], $frm_data['note'], $frm_data['patients_id']];
    
-  if(update($q1,$values,'ssisii')){
+  if(update($q1,$values,'siisi')){
     $flag = 1;
   }
 

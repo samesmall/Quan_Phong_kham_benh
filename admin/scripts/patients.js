@@ -90,13 +90,14 @@ function toggle_status(id, val) {
 
 let edit_patients_form = document.getElementById('edit_patients_form');
 
-function edit_details(id) {
+function edit_patients(id) {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/patients.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function() {
         let data = JSON.parse(this.responseText);
+        alert(data);
         edit_patients_form.elements["patients_id"].value = data.patientdata.patients_id;
         edit_patients_form.elements["Patients_name"].value = data.patientdata.Patients_name;
         edit_patients_form.elements["date_of_birth"].value = data.patientdata.date_of_birth;

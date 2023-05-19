@@ -141,7 +141,7 @@ adminLogin();
                                 <label class="form-label fw-bold">Result description</label>
                                 <textarea name="result_description" rows="4" class="form-control shadow-none" required></textarea>
                             </div>
-
+                            <input type="hidden" name="result_id">
                         </div>
 
                     </div>
