@@ -16,7 +16,13 @@ adminLogin();
     <?php require('inc/link.php'); ?>
     <?php require('inc/scripts.php'); ?>
 
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Select2 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+
 </head>
+
 
 <body class="bg-light">
 
@@ -41,18 +47,20 @@ adminLogin();
                 <div class="table-responsive-lg" style="height:450px;border-radius: 10px;background:white">
                     <table class="table table-hover border" style="width: 100%">
                         <thead>
-                        <tr class="text-white text-left" style="background:#6096B4;font-size:13px;font-family:'Roboto Mono';">
-                                <th scope="col-sm" style="width: 20%">ID<br>Số thứ tự</th>
-                                <th scope="col-sm" style="width: 20%">Result_id<br>Mã kết qủa</th>
-                                <th scope="col" style="width: 20%">Type of result<br>Loại kết quả</th>
-                                <th scope="col-sm" style="width: 20%">Result description<br>mô tả kết quả</th>
-                                <th scope="col-sm" style="width: 20%">Action<br>Thao tác</th>
+                            <tr class="text-white text-left" style="background:#6096B4;font-size:13px;">
+                                <th scope="col-sm" >ID<br>Số thứ tự</th>
+                                <th scope="col-sm">Result_id<br>Mã kết qủa</th>
+                                <th scope="col-sm" >Patients_id<br>Mã bệnh nhân</th>
+                                <th scope="col">Type of result<br>Loại kết quả</th>
+                                <th scope="col-sm">Result description<br>mô tả kết quả</th>
+                                <th scope="col-sm">Action<br>Thao tác</th>
                             </tr>
                         </thead>
                         <tbody id="testresults-data">
                         </tbody>
 
                     </table>
+                    
                 </div>
             </div>
         </div>
@@ -66,12 +74,24 @@ adminLogin();
         <div class="modal-dialog modal-md">
             <form id="add_testresults_form" autocomplete="off">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header text-white" style="background:#6096B4">
                         <h5 class="modal-title">Add New Test Results</h5>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12 mb-3">
+                                <label class="form-label fw-bold">Patient Name</label>
+                                <select id="patients_id" class="form-control shadow-none" required>
+                                    <?php
+                                    $res = selectAll('patients');
+                                    echo "<option value=''>Select name</option>";
+                                    while ($row = mysqli_fetch_assoc($res)) {
+                                        echo "<option value='" . $row['patients_id'] . "'>" . $row['Patients_name'] . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="col-md-12 mb-3">
                                 <label class="form-label fw-bold">Type of result</label>
                                 <input type="text" id="type_of_result" class="form-control shadow-none" required>
                             </div>
@@ -90,18 +110,29 @@ adminLogin();
             </form>
         </div>
     </div>
- 
+   
 
     <div class="modal fade" id="edit-testresults" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <form id="edit_testresults_form" autocomplete="off">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header text-white" style="background:#6096B4">
                         <h5 class="modal-title">Edit New Test Results</h5>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <input type="hidden" name="result_id">
+                        <div class="col-md-12 mb-3">
+                                <label class="form-label fw-bold">Patient Name</label>
+                                <select id="patients_id" class="form-control shadow-none" required>
+                                    <?php
+                                    $res = selectAll('patients');
+                                    echo "<option value=''>Select name</option>";
+                                    while ($row = mysqli_fetch_assoc($res)) {
+                                        echo "<option value='" . $row['patients_id'] . "'>" . $row['Patients_name'] . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
                             <div class="col-md-12 mb-3">
                                 <label class="form-label fw-bold">Type of result</label>
                                 <input type="text" id="type_of_result" class="form-control shadow-none" required>
@@ -110,6 +141,7 @@ adminLogin();
                                 <label class="form-label fw-bold">Result description</label>
                                 <textarea name="result_description" rows="4" class="form-control shadow-none" required></textarea>
                             </div>
+
                         </div>
 
                     </div>
@@ -124,9 +156,17 @@ adminLogin();
 
 
 
-
     <?php require('inc/scripts.php') ?>
     <script src="scripts/testresults.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    <!-- <script>
+        // Call select2() after jQuery and Select2 are loaded
+        $(document).ready(function() {
+            $('#patients_id').select2();
+        });
+    </script> -->
 </body>
 
 </html>

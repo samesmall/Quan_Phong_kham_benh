@@ -41,7 +41,7 @@ adminLogin();
                 <div class="table-responsive-lg" style="height:450px;border-radius: 10px;background:white">
                     <table class="table table-hover border" style="width: 100%">
                         <thead>
-                        <tr class="text-white text-left" style="background:#6096B4;font-size:13px;font-family:'Roboto Mono';">
+                        <tr class="text-white text-left" style="background:#6096B4;font-size:13px;">
                                 <th scope="col-sm" style="padding-left: 20px">ID<br>Số thứ tự</th>
                                 <th scope="col-sm" style="padding-left: 20px">Doctor_id<br>Mã bác sĩ</th>
                                 <th scope="col" style="width: 30%">Doctor_name<br>Tên bác sĩ</th>

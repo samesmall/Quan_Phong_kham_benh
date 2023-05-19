@@ -44,7 +44,7 @@ if(isset($_POST['get_all_patients']))
     <tr class='align-middle'>
         <td style='padding-left: 20px'>$i</td>
         <td style='padding-left: 20px'>
-        <span class='badge bg-info'>
+        <span class='badge bg-success'>
         $row[patients_id]
             </span>
             </td>

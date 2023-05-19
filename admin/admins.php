@@ -41,7 +41,7 @@ adminLogin();
                 <div class="table-responsive-lg" style="height:450px;border-radius: 10px;background:white">
                     <table class="table table-hover border" style="width: 100%">
                         <thead>
-                            <tr class="text-white text-left" style="background:#6096B4;font-size:13px;font-family:'Roboto Mono';">
+                            <tr class="text-white text-left" style="background:#6096B4;font-size:13px;">
                                 <th scope="col-sm">ID<br>Số thứ tự</th>
                                 <th scope="col-sm">Admin name<br>Tên người quản lý</th>
                                 <th scope="col">Admin Password<br>Mật khẩu</th>

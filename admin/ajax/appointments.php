@@ -11,10 +11,10 @@ if(isset($_POST['add_appointments']))
   $frm_data = filteration($_POST);
   $flag = 0;
   
-  $q1 = "INSERT INTO `appointments`( `Patients_name`, `date_of_birth`, `gender`,`address`, `number`) VALUES (?,?,?,?,?)";
-  $values = [$frm_data['Patients_name'], $frm_data['date_of_birth'], $frm_data['gender'], $frm_data['address'],$frm_data['number']];
+  $q1 = "INSERT INTO `appointments`( `doctors_id`, `patients_id`, `Appointment_time`,`note`) VALUES (?,?,?,?)";
+  $values = [$frm_data['doctors_id'], $frm_data['patients_id'], $frm_data['Appointment_time'], $frm_data['note']];
 
-  if(insert($q1,$values,'ssisi')){
+  if(insert($q1,$values,'iiss')){
     $flag = 1;
   }
 
@@ -42,6 +42,10 @@ if(isset($_POST['get_all_appointments']))
         <td style='padding-left: 20px'>
         <span class='badge bg-info'>
         $row[doctors_id]
+        </span></td>
+        <td>
+        <span class='badge bg-success'>
+        $row[patients_id]
         </span></td>
         <td>$row[Appointment_time]</td>
         <td>$row[note]</td>

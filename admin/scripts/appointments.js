@@ -9,11 +9,10 @@ add_appointments_form.addEventListener('submit', function(e) {
 function add_appointments() {
     let data = new FormData();
     data.append('add_appointments', '');
-    data.append('Patient_name', add_patients_form.elements["Patient_name"].value);
-    data.append('date_of_birth', add_patients_form.elements["date_of_birth"].value);
-    data.append('gender', add_patients_form.elements["gender"].value);
-    data.append('address', add_patients_form.elements["address"].value);
-    data.append('number', add_patients_form.elements["number"].value);
+    data.append('doctors_id', add_appointments_form.elements["doctors_id"].value);
+    data.append('patients_id', add_appointments_form.elements["patients_id"].value);
+    data.append('Appointment_time', add_appointments_form.elements["Appointment_time"].value);
+    data.append('note', add_appointments_form.elements["note"].value);
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/appointments.php", true);
     xhr.onload = function() {
@@ -22,7 +21,11 @@ function add_appointments() {
         modal.hide();
         if (this.responseText == 1) {
             alert("success", "New appointments added!");
-            add_appointments_form.reset();
+            add_appointments_form.elements["doctors_id"].value = '';
+            add_appointments_form.elements["patients_id"].value = '';
+            add_appointments_form.elements["Appointment_time"].value = '';
+            add_appointments_form.elements["note"].value = '';
+            get_all_appointments();
         } else {
             alert("error", "Server Down!");
         }
@@ -68,13 +71,13 @@ function submit_edit_appointments() {
 
 function toggle_status(id, val) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "ajax/patients.php", true);
+    xhr.open("POST", "ajax/appointments.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function() {
         if (this.responseText == 1) {
             alert('success', 'Status toggled!');
-            get_all_patients();
+            get_all_appointments();
         } else {
             alert('success', 'Server Down!');
         }

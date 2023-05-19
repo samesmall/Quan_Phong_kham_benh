@@ -9,6 +9,7 @@ add_testresults_form.addEventListener('submit', function(e) {
 function add_testresults() {
     let data = new FormData();
     data.append('add_testresults', '');
+    data.append('patients_id', add_testresults_form.elements["patients_id"].value);
     data.append('type_of_result', add_testresults_form.elements["type_of_result"].value);
     data.append('result_description', add_testresults_form.elements["result_description"].value);
     let xhr = new XMLHttpRequest();
@@ -19,6 +20,7 @@ function add_testresults() {
         modal.hide();
         if (this.responseText == 1) {
             alert("success", "New test results added!");
+            add_testresults_form.elements["patients_id"].value = '';
             add_testresults_form.elements["type_of_result"].value = '';
             add_testresults_form.elements["result_description"].value = '';
             get_all_testresults();
@@ -130,3 +132,7 @@ function remove_testresults(id)
 window.onload = function() {
     get_all_testresults();
 }
+
+
+
+
