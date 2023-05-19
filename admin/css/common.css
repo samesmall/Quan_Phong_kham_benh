@@ -13,35 +13,35 @@
 .a-font{
   font-family: 'Josefin Sans', sans-serif;
 } */
-* {
+/* * {
   font-family: "Roboto Mono", monospace;
-}
+} */
 .h-font {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Poppins", monospace;
 }
 tbody{
   font-size: 13px;
 }
 .a-font{
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Poppins', monospace;
 }
 h1{
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Poppins', monospace;
 }
 h2{
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Poppins', monospace;
 }
 h3{
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Poppins', monospace;
 }
 h4{
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Poppins', monospace;
 }
 h5{
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Poppins', monospace;
 }
 p{
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Poppins', monospace;
 }
 
 

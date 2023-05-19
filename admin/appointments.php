@@ -41,9 +41,10 @@ adminLogin();
                 <div class="table-responsive-lg" style="height:450px;border-radius: 10px;background:white">
                     <table class="table table-hover border" style="width: 100%">
                         <thead>
-                        <tr class="text-white text-left" style="background:#6096B4;font-size:13px;font-family:'Roboto Mono';">
+                        <tr class="text-white text-left" style="background:#6096B4;font-size:13px;">
                                 <th scope="col-sm" >ID<br>Số thứ tự</th>
                                 <th scope="col-sm">Doctor_id<br>Mã bác sĩ</th>
+                                <th scope="col-sm">Patient_id<br>Mã bệnh nhân</th>
                                 <th scope="col-sm" >Appointment_time<br>Lịch hẹn</th>
                                 <th scope="col-sm" >Note<br>Chi tiết</th>
                                 <th scope="col-sm" >Action<br>Thao tác</th>
@@ -63,22 +64,45 @@ adminLogin();
 
     <!-- add room modal -->
     <div class="modal fade" id="add-appointments" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
             <form id="add_appointments_form" autocomplete="off">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header text-white" style="background:#6096B4">
                         <h5 class="modal-title">Add New Appointments</h5>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                         
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Appointment_time</label>
-                                <input type="date" id="Appointment_time" class="form-control shadow-none" required>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label fw-bold">Doctor Name</label>
+                                <select id="doctors_id" class="form-control shadow-none" required>
+                                    <?php
+                                    $res = selectAll('doctors');
+                                    echo "<option value=''>Select doctor</option>";
+                                    while ($row = mysqli_fetch_assoc($res)) {
+                                        echo "<option value='" . $row['Doctor_id'] . "'>" . $row['Doctor_name'] . "</option>";
+                                    }
+                                    ?>
+                                </select>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label fw-bold">Patient Name</label>
+                                <select id="patients_id" class="form-control shadow-none" required>
+                                    <?php
+                                    $res = selectAll('patients');
+                                    echo "<option value=''>Select patient</option>";
+                                    while ($row = mysqli_fetch_assoc($res)) {
+                                        echo "<option value='" . $row['patients_id'] . "'>" . $row['Patients_name'] . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label fw-bold">Appointment_time</label>
+                                <input type="datetime-local" id="Appointment_time" class="form-control shadow-none" required>
+                            </div>
+                            <div class="col-md-12 mb-3">
                                 <label class="form-label fw-bold">Note</label>
-                                <input type="text" id="note" class="form-control shadow-none" required>
+                                <textarea name="note" rows="4" class="form-control shadow-none" required></textarea>
                             </div>
                         </div>
 

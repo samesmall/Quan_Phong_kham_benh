@@ -1,5 +1,5 @@
 <div class="container-fluid p-1 d-flex align-items-center justify-content-between sticky-top" style="background:#BDCDD6">
-    <img src="\images\logo\images1.png" alt="Logo" style="height: 100px;margin-left:60px;">
+    <img src="\images\logo\images1.png" alt="Logo" style="height: 50px;margin-left:40px;">
     <h3 class="titile-dashbroad mb-0" style=" color:rgba(15, 74, 78, 1); font-weight: 700;"><i class="bi bi-hospital" ></i> HỆ QUẢN LÝ PHÒNG KHÁM BỆNH</h3>
     <a href="logout.php" class="btn btn-danger btn-sm " style="margin-right:20px;"><i class="bi bi-box-arrow-right "></i> LOG OUT</a>
 </div>

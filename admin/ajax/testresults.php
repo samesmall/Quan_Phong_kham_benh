@@ -11,10 +11,10 @@ if(isset($_POST['add_testresults']))
   $frm_data = filteration($_POST);
   $flag = 0;
   
-  $q1 = "INSERT INTO `testresults`( `type_of_result`, `result_description`) VALUES (?,?)";
-  $values = [$frm_data['type_of_result'], $frm_data['result_description']];
+  $q1 = "INSERT INTO `testresults`( `type_of_result`, `result_description`,`patients_id`) VALUES (?,?,?)";
+  $values = [$frm_data['type_of_result'], $frm_data['result_description'], $frm_data['patients_id']];
 
-  if(insert($q1,$values,'ss')){
+  if(insert($q1,$values,'ssi')){
     $flag = 1;
   }
 
@@ -36,7 +36,8 @@ if(isset($_POST['get_all_testresults']))
     $data.="
     <tr class='align-middle'>
         <td style='padding-left: 20px'>$i</td>
-        <td style='padding-left: 20px'><span class='badge bg-info'>$row[result_id]</span></td>
+        <td style='padding-left: 20px'><span class='badge bg-warning'>$row[result_id]</span></td>
+        <td> <span class='badge bg-success'>$row[patients_id]</span></td>
         <td>$row[type_of_result]</td>
         <td>$row[result_description]</td>
  
