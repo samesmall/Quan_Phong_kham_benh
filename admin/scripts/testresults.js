@@ -48,6 +48,7 @@ function submit_edit_testresults() {
     data.append('patients_id', edit_testresults_form.elements["patients_id"].value);
     data.append('type_of_result', edit_testresults_form.elements["type_of_result"].value);
     data.append('result_description', edit_testresults_form.elements["result_description"].value);
+    data.append('result_date', edit_testresults_form.elements["result_date"].value);
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/testresults.php", true);
     xhr.onload = function() {

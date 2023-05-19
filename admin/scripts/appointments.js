@@ -60,7 +60,7 @@ function submit_edit_appointments() {
         modal.hide();
         if (this.responseText == 1) {
             alert('success', 'Appointments data edited!');
-            edit_patients_form.reset();
+            edit_appointments_form.reset();
             get_all_appointments();
         } else {
             alert('error', 'Server Down!');

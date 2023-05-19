@@ -2,6 +2,7 @@
 require('inc/essentials.php');
 require('inc/db_config.php');
 adminLogin();
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 
 ?>
@@ -52,7 +53,8 @@ adminLogin();
                                 <th scope="col-sm">Result_id<br>Mã kết qủa</th>
                                 <th scope="col-sm" >Patients_id<br>Mã bệnh nhân</th>
                                 <th scope="col">Type of result<br>Loại kết quả</th>
-                                <th scope="col-sm">Result description<br>mô tả kết quả</th>
+                                <th scope="col-sm">Result description<br>Mô tả kết quả</th>
+                                <th scope="col-sm">Result date<br>Ngày xét nghiệm</th>
                                 <th scope="col-sm">Action<br>Thao tác</th>
                             </tr>
                         </thead>
@@ -142,6 +144,7 @@ adminLogin();
                                 <textarea name="result_description" rows="4" class="form-control shadow-none" required></textarea>
                             </div>
                             <input type="hidden" name="result_id">
+                            <input style="display:none;" type="datetime-local" id="result_date" class="form-control" value="<?php echo date('Y-m-d\TH:i'); ?>" required>
                         </div>
 
                     </div>

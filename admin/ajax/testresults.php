@@ -40,7 +40,7 @@ if(isset($_POST['get_all_testresults']))
         <td> <span class='badge bg-success'>$row[patients_id]</span></td>
         <td>$row[type_of_result]</td>
         <td>$row[result_description]</td>
- 
+        <td>$row[result_date]</td>
         
         <td>
           <button type='button' onclick='edit_testresults($row[result_id])' class='btn btn-primary shadow-none btn-sm' data-bs-toggle='modal' data-bs-target='#edit-testresults'>
@@ -79,10 +79,10 @@ if(isset($_POST['edit_testresults']))
   $frm_data = filteration($_POST);
   $flag = 0;
 
-  $q1 = "UPDATE `testresults` SET `patients_id`=?,`type_of_result`=?,`result_description`=? WHERE `result_id`=?";
-  $values = [$frm_data['patients_id'],$frm_data['type_of_result'], $frm_data['result_description'],$frm_data['result_id']];
+  $q1 = "UPDATE `testresults` SET `patients_id`=?,`type_of_result`=?,`result_description`=?,`result_date`=? WHERE `result_id`=?";
+  $values = [$frm_data['patients_id'],$frm_data['type_of_result'], $frm_data['result_description'],$frm_data['result_date'],$frm_data['result_id']];
    
-  if(update($q1,$values,'issi')){
+  if(update($q1,$values,'isssi')){
     $flag = 1;
   }
 
