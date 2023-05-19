@@ -43,7 +43,11 @@ if(isset($_POST['get_all_patients']))
     $data.="
     <tr class='align-middle'>
         <td style='padding-left: 20px'>$i</td>
-        <td style='padding-left: 20px'>$row[patients_id]</td>
+        <td style='padding-left: 20px'>
+        <span class='badge bg-info'>
+        $row[patients_id]
+            </span>
+            </td>
         <td>$row[Patients_name]</td>
         <td>$row[date_of_birth]</td>
         <td>$gender</td>
@@ -72,11 +76,7 @@ if(isset($_POST['get_patients']))
   $res1 = select("SELECT * FROM `patients` WHERE  `patients_id`=?",[$frm_data['get_patients']],'i');
 
   $patientdata = mysqli_fetch_assoc($res1);
- 
-
-
   $data = ["patientdata" => $patientdata];
-
   $data = json_encode($data);
   echo $data;
 

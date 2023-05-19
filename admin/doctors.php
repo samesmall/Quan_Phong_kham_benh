@@ -63,10 +63,10 @@ adminLogin();
 
     <!-- add room modal -->
     <div class="modal fade" id="add-doctors" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
             <form id="add_doctors_form" autocomplete="off">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header text-white" style="background:#6096B4">
                         <h5 class="modal-title">Add New Doctor</h5>
                     </div>
                     <div class="modal-body">
@@ -92,10 +92,10 @@ adminLogin();
     </div>
  <!-- edit doctor modal -->
         <div class="modal fade" id="edit-doctors" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog modal-md">
                     <form id="edit_doctors_form" autocomplete="off">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header text-white" style="background:#6096B4">
                                 <h5 class="modal-title">Edit Doctor</h5>
                             </div>
                             <div class="modal-body">

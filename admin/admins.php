@@ -65,7 +65,7 @@ adminLogin();
         <div class="modal-dialog modal-md">
             <form id="add_admins_form" autocomplete="off">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header  text-white" style="background:#6096B4">
                         <h5 class="modal-title">Add New Admin</h5>
                     </div>
                     <div class="modal-body">

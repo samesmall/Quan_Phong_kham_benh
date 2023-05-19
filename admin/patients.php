@@ -69,7 +69,7 @@ adminLogin();
         <div class="modal-dialog modal-md">
             <form id="add_patients_form" autocomplete="off">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header text-white" style="background:#6096B4">
                         <h5 class="modal-title">Add New patients</h5>
                     </div>
                     <div class="modal-body">
@@ -110,15 +110,15 @@ adminLogin();
     </div>
     <!-- edit doctor modal -->
     <div class="modal fade" id="edit-patients" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
             <form id="edit_patients_form" autocomplete="off">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header text-white" style="background:#6096B4">
                         <h5 class="modal-title">Edit Patients</h5>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <input type="hidden" name="patients_id">
+                
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Patients name</label>
                                 <input type="text" id="Patients_name" class="form-control shadow-none" required>
@@ -135,13 +135,14 @@ adminLogin();
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Address</label>
-                                <input type="text" id="address" class="form-control shadow-none" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Number</label>
                                 <input type="number" id="number" class="form-control shadow-none" required>
                             </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label fw-bold">Address</label>
+                                <input type="text" id="address" class="form-control shadow-none" required>
+                            </div>
+                            <input type="hidden" name="patients_id">
                         </div>
 
                     </div>

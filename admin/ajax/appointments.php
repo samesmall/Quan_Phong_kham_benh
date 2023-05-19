@@ -39,7 +39,10 @@ if(isset($_POST['get_all_appointments']))
     $data.="
     <tr class='align-middle'>
         <td style='padding-left: 20px'>$i</td>
-        <td style='padding-left: 20px'>$row[doctors_id]</td>
+        <td style='padding-left: 20px'>
+        <span class='badge bg-info'>
+        $row[doctors_id]
+        </span></td>
         <td>$row[Appointment_time]</td>
         <td>$row[note]</td>
  

@@ -48,12 +48,12 @@ function get_all_patients() {
 function submit_edit_patients() {
     let data = new FormData();
     data.append('edit_patients', '');
-    data.append('patients_id', edit_doctors_form.elements["patients_id"].value);
-    data.append('Patients_name', add_patients_form.elements["Patients_name"].value);
-    data.append('date_of_birth', add_patients_form.elements["date_of_birth"].value);
-    data.append('gender', add_patients_form.elements["gender"].value);
-    data.append('address', add_patients_form.elements["address"].value);
-    data.append('number', add_patients_form.elements["number"].value);
+    data.append('patients_id', edit_patients_form.elements["patients_id"].value);
+    data.append('Patients_name', edit_patients_form.elements["Patients_name"].value);
+    data.append('date_of_birth', edit_patients_form.elements["date_of_birth"].value);
+    data.append('gender', edit_patients_form.elements["gender"].value);
+    data.append('address', edit_patients_form.elements["address"].value);
+    data.append('number', edit_patients_form.elements["number"].value);
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/patients.php", true);
     xhr.onload = function() {

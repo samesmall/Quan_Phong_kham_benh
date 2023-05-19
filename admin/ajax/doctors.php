@@ -39,7 +39,11 @@ if(isset($_POST['get_all_doctors']))
     $data.="
     <tr class='align-middle'>
         <td style='padding-left: 20px'>$i</td>
-        <td style='padding-left: 20px'>$row[Doctor_id]</td>
+        <td style='padding-left: 20px'>
+        <span class='badge bg-info'>
+        $row[Doctor_id]
+            </span>
+            </td>
         <td>$row[Doctor_name]</td>
         <td>$row[Specialized]</td>
  

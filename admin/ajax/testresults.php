@@ -36,7 +36,7 @@ if(isset($_POST['get_all_testresults']))
     $data.="
     <tr class='align-middle'>
         <td style='padding-left: 20px'>$i</td>
-        <td style='padding-left: 20px'>$row[result_id]</td>
+        <td style='padding-left: 20px'><span class='badge bg-info'>$row[result_id]</span></td>
         <td>$row[type_of_result]</td>
         <td>$row[result_description]</td>
  
